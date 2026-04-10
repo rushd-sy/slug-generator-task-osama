@@ -1,29 +1,13 @@
-# Task #1 - Slug Generator
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20svg/2%20logomark%20white.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Description
+## About Laravel
 
-This project implements a simple helper function to generate SEO-friendly slugs from titles using Laravel conventions.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects.
 
-## Solution Details
+## Learning Laravel
 
-- **Route:** Added a GET route in `api.php` at `/api/generate-slug`.
-- **Controller:** Created `SlugController` to handle the logic.
-- **Logic:** Used Laravel's built-in `Str::slug` helper for robust transformation.
-- **Testing:** Added a Unit Test `SlugTest` to verify the slug generation logic.
+Laravel has the most comprehensive and thorough [documentation](https://laravel.com/docs) and video tutorial library in the world, making it a breeze to get started with the framework.
 
-## How to Run
+## License
 
-1. Clone the repository.
-2. Run `composer install`.
-3. Run `php artisan serve`.
-4. Test the API: `http://127.0.0.1:8000/api/generate-slug?title=Your Title Here`
-
-## How to Test
-
-Run the following command to execute the Unit Tests:
-
-```bash
-php artisan test --filter SlugTest
----
-Thank you, By Osama Hanano, Rushd
-```
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
