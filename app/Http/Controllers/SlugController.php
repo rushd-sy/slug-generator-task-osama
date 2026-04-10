@@ -9,18 +9,25 @@ class SlugController extends Controller
 {
     public function generate(Request $request)
     {
-        // نأخذ العنوان من الرابط (مثلاً ?title=My Article)
         $title = $request->query('title');
 
-        // التحقق من وجود عنوان
         if (!$title) {
-            return response()->json(['error' => 'Please provide a title'], 400);
+            return response()->json(['error' => 'Title is required'], 400);
         }
 
-        // تحويل العنوان لـ Slug (حروف صغيرة، مسافات تتحول لشرطات)
-        $slug = Str::slug($title, '-');
+        $slug = strtolower($title);
+        // Upercase to Lowercase
 
-        // إرجاع النتيجة بتنسيق JSON   
+        $slug = preg_replace('/[^a-z0-9]/', ' ', $slug);
+        //استبدلت كلشي رموز بفراغ
+
+        $slug = preg_replace('/\s+/', '-', $slug);
+        //حولت كلشي سبيس سواء كانت سبيس فراغ واحد او عدة فراغات ل داش (-)
+
+        $slug = trim($slug, '-');
+        //هي الدالة مشان الاطراف لوكان في عندي داش بالاول او بالاخير بتحذفلي هي
+
+
         return response()->json([
             'slug' => $slug
         ]);

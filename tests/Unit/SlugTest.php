@@ -3,23 +3,23 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Illuminate\Support\Str;
 
 class SlugTest extends TestCase
 {
     /** @test */
-    public function it_can_generate_a_slug_from_a_title()
+    public function generate_a_slug_from_a_title()
     {
-        // المعطيات (المُدخل)
-        $title = 'What is a "slug" in Laravel?';
+        $title = "  Hello @ World ! From Osama ^ ";
 
-        // النتيجة المتوقعة (المُخرج)
-        $expectedSlug = 'what-is-a-slug-in-laravel';
 
-        // التنفيذ باستخدام الـ Helper اللي استخدمته بالـ Controller
-        $result = Str::slug($title, '-');
+        $slug = strtolower($title);
+        $slug = preg_replace('/[^a-z0-9]/', ' ', $slug);
+        $slug = preg_replace('/\s+/', '-', $slug);
+        $slug = trim($slug, '-');
 
-        // التأكد: هل النتيجة المحسوبة تساوي المتوقعة؟
-        $this->assertEquals($expectedSlug, $result);
+
+        $expected = "hello-world-from-osama";
+
+        $this->assertEquals($expected, $slug);
     }
 }
