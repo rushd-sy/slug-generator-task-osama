@@ -1,29 +1,26 @@
-# Task #1 - Slug Generator
+# Slug Generator Task
 
-## Description
+## Goal
 
-This project implements a simple helper function to generate SEO-friendly slugs from titles using Laravel conventions.
+The goal of this task is to build a custom engine that converts any title into a URL-friendly slug, ensuring that special characters and extra spaces are handled correctly without using built-in framework helpers.
 
-## Solution Details
+## Steps Followed
 
-- **Route:** Added a GET route in `api.php` at `/api/generate-slug`.
-- **Controller:** Created `SlugController` to handle the logic.
-- **Logic:** Used Laravel's built-in `Str::slug` helper for robust transformation.
-- **Testing:** Added a Unit Test `SlugTest` to verify the slug generation logic.
+To complete the task manually, I followed these steps:
 
-## How to Run
-
-1. Clone the repository.
-2. Run `composer install`.
-3. Run `php artisan serve`.
-4. Test the API: `http://127.0.0.1:8000/api/generate-slug?title=Your Title Here`
+1. **Lowercase Conversion**: Converted all characters to lowercase for consistency.
+2. **Character Filtering**: Used Regex (Regular Expressions) to remove special symbols and characters, keeping only letters and numbers.
+3. **Space Management**: Replaced all spaces (single or multiple) with a single hyphen `-`.
+4. **Final Trimming**: Removed any extra hyphens from the beginning or the end of the slug.
+5. **Testing**: Created a Unit Test to verify that the logic works perfectly across different edge cases.
 
 ## How to Test
 
-Run the following command to execute the Unit Tests:
+You can verify the implementation by running the following command:
 
 ```bash
 php artisan test --filter SlugTest
----
-Thank you, By Osama Hanano, Rushd
+
+By Osama Hanano
+
 ```
